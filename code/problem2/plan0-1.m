@@ -1,0 +1,27 @@
+clc;
+clear;
+capacity_A=xls("C:\Users\PC\Desktop\数据整合（excel处理）.xls",3,D2:D20);
+%读取生产A材料供应商产能
+capacity_B=xls("C:\Users\PC\Desktop\数据整合（excel处理）.xls",4,D2:D15);
+%读取生产B材料供应商产能
+capacity_C=xls("C:\Users\PC\Desktop\数据整合（excel处理）.xls",5,D2:D20);
+%读取生产C材料供应商产能
+capacity_A_to_puduct=capacity_A./0.6;%计算A材料供应量对于的产能
+capacity_B_to_puduct=capacity_B./0.66;%计算B材料供应量对于的产能
+capacity_C_to_puduct=capacity_C./0.72;%计算C材料供应量对于的产能
+capacity_A_to_puduct=(capacity_A_to_puduct)';
+capacity_B_to_puduct=(capacity_B_to_puduct)';
+capacity_C_to_puduct=(capacity_C_to_puduct)';
+%--------------------0-1规划---------------------------------------------
+f=[1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1...
+    ;1;1;1;1;1;1;1;1;1;1;1;1;1;1];
+A=[capacity_A_to_puduct capacity_B_to_puduct capacity_C_to_puduct];
+b=(28200);
+Aeq=[];
+beq=[];
+lb=[0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0...
+    ;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0];
+up=[1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;...
+    1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1];
+[x,fval]=linprog(f,-A,-b,Aeq,beq,lb,up);
+xlswrite("result_of_supplier.xls",x);
