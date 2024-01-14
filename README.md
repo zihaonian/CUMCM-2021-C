@@ -4,7 +4,7 @@
 
 ## 文件结构
 
-
+```
 CUMCM-2021-C/
 │
 ├── code/                        # 存放解决问题的代码，按问题划分
@@ -34,7 +34,7 @@ CUMCM-2021-C/
 │   └── Appendix B Transshipment Programme Data Results.csv
 │
 └── README.md                    # 本文档，提供有关问题描述、论文摘要以及文件结构等信息
-
+```
 
 
 ## 问题描述
