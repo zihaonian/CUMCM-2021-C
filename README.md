@@ -19,7 +19,7 @@ CUMCM-2021-C/
 │   ├── problem3/
 │   └── problem4/
 │
-├── Drawing code/                # 包含论文图表绘制代码
+├── Drawing_code/                # 包含论文图表绘制代码
 │   ├── Problem 1 Drawing of comprehensive evaluation indicators of supply capacity
 │   ├── Problem 1 The proportion of raw materials produced by the top 50 suppliers
 │   └── Problem 2 Dynamic noise simulation production volume data comparison plot
